@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyparser = require("body-parser");
-
+//code refactoring
+const date= require(__dirname+ "/date.js");
 const app = express();
 app.use(express.static("public"));
 app.use(bodyparser.urlencoded({extended:true}));
 //array listing our entered input
-var newitem =[];
+var newitem =["cooking","studying","dancing"];
 var workitem=[];
 //telling our app to use ejs
 app.set('view engine', 'ejs');
@@ -45,7 +46,7 @@ app.post("/work",function(req,res)
 
      if(index>-1)
      {
-       workitem.splice(index,1);
+       workitem.splice(index,1);//for deleting from array
        res.redirect("/work");
      }
    else
@@ -67,40 +68,13 @@ app.get("/work",function(req,res)
 //it will again be called after we update our list so as to display the newly entered item.
 app.get("/", function(req, res) {
 
-  var today = new Date();
-var options=
-{
-  weekday:"long",
-  year:"numeric",
-  month:"long",
-  day:"numeric"
-};
-
-  var todaysDay = today.toLocaleDateString("en-US",options);
-  // var todaysDay = "";
-  // if (day === 1)
-  //   todaysDay = "sunday";
-  // else if (day === 2)
-  //   todaysDay = "monday";
-  // else if (day === 3)
-  //   todaysDay = "tueday";
-  // else if (day === 4)
-  //   todaysDay = "wednesday";
-  // else if (day === 5)
-  //   todaysDay = "thursday";
-  // else if (day === 6)
-  //   todaysDay = "friday";
-  // else if (day === 7)
-  //   todaysDay = "saturday";
-  // else
-  //   console.log("Not a defined Day! current day:" + todaysDay);
-
+var todaysDay=date.getdate();
 //items: newitem -> it has to be done here cuz if not done then when we first enconter this part when webpage loads
 //the ejs template will search for items which will not be passed here.
   res.render("lists", {list_title: todaysDay,items: newitem});
 
 });
 
-app.listen(process.env.PORT||7000, function() {
+app.listen(process.env.PORT||7000, function() { //MAKE SURE TO INCLUDE env port before deploying on heroku.
   console.log("server started at port 7000");
 });

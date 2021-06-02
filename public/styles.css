@@ -17,8 +17,30 @@ font-family: 'Reggae One', cursive;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
+.box2 {
+  max-width: 400px;
+  margin: 40px auto;
+  background: #008891;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+.box3 {
+  max-width: 600px;
+  margin: 40px auto;
+  background: white;;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+.foot{
+  color: #008891;
+}
+
 #heading {
-  background-color: #f7f7f7;
+  background-color: white;
+  text-align: center;
+}
+#heading2 {
+  background-color: #008891;
   text-align: center;
 }
 .item {
@@ -69,7 +91,7 @@ input[type="text"] {
   background: #40e0d0;
   font-size: 20px;
   font-weight: 200;
-  width: 313px;
+  width: 500px;
   color: white;
   border-radius: 40%;
   font-family: 'Mansalva', cursive;
@@ -84,7 +106,7 @@ input[type="text"]:focus {
   width: 30px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #40e0d0;
+  background-color: red;;
   color: #fff;
   font-size: 20px;
   padding-bottom: 6px;
@@ -101,6 +123,9 @@ button {
   padding-bottom: 6px;
   border-width: 0;
 }
+.mainhead{
+  color: white;
+  }
 ::placeholder {
   color: white;
   opacity: 0.5;
