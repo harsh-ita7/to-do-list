@@ -101,6 +101,6 @@ var options=
 
 });
 
-app.listen(7000, function() {
-  console.log("server started at this port");
+app.listen(process.env.PORT||7000, function() {
+  console.log("server started at port 7000");
 });
