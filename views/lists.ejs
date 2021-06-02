@@ -1,0 +1,56 @@
+<%- include("header") -%>
+  <body>
+    <div class="box" id="heading">
+       <h1> <%= list_title %> </h1>
+    </div>
+
+
+    <div class="box">
+      <ul>
+
+      <% for(var i=0;i<items.length;++i) { %>
+
+        <%   if(list_title==="work list") { %>
+
+          <form  action="/work" method="post">
+
+       <div class="item">
+         <input type="checkbox" >
+         <p> <%= items[i] %> </p>
+         <button class="delbutt" type="submit" name="delbutton" value= <%= items[i] %>>-</button>
+       </div>
+     </form>
+      <%  } else {%>
+             <form  action="/" method="post">
+
+          <div class="item">
+            <input type="checkbox" >
+            <p> <%= items[i] %> </p>
+            <button class="delbutt" type="submit" name="delbutton" value= <%= items[i] %>>-</button>
+          </div>
+        </form>
+    <%  } %>
+  <%  }  %>
+      </ul>
+
+  <%   if(list_title==="work list") { %>
+          <form  action="/work" method="post">
+
+        <input type="text" name="newITEM" placeholder="new item" autocomplete="off" >
+
+        <button type="submit" name="add">+</button>
+      </form>
+        <%  } else {%>
+          <form  action="/" method="post">
+
+        <input type="text" name="newITEM" placeholder="new item" autocomplete="off" >
+
+        <button type="submit" name="add">+</button>
+      </form>
+        <%  } %>
+
+    </div>
+
+
+  </body>
+<%- include("footer") -%>
